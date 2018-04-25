@@ -82,7 +82,7 @@ public interface PicturesService {
      * creat_date: 2017/12/31/0031
      * creat_time: 14:25
      **/
-    int uploadPicture(MultipartFile file,  String title) throws IOException, NoSuchAlgorithmException;
+    int uploadPicture(MultipartFile file, String title, String picLocation) throws IOException, NoSuchAlgorithmException;
 
     /**
      * describe: 上传avatar图片
@@ -93,7 +93,7 @@ public interface PicturesService {
      * creat_date: 2018/2/17/0017
      * creat_time: 21:32
      **/
-    int uploadAvatar(MultipartFile file,  String title) throws IOException, NoSuchAlgorithmException;
+    int uploadAvatar(MultipartFile file, String title, String picLocation) throws IOException, NoSuchAlgorithmException;
 
     /**
      * describe: 获得Pictures的总数
@@ -141,4 +141,6 @@ public interface PicturesService {
 
     void updatePicture(Pictures pictures);
 
+    
+    void modifyPictureInfo(String category, int categoryId, int[] id); 
 }

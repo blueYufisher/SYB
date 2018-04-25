@@ -516,4 +516,35 @@ public class InfosRestController {
         return message;
 
     }
+
+    @RequestMapping("/selectInfoNumByReleaseTime")
+    public ResponseMessage selectInfoNumByReleaseTime(HttpServletRequest request,
+                                                      @RequestParam("num") Integer num) {
+        /**
+         * describe: 根据数量找到最新的infos
+         * class_name: selectInfoNumByReleaseTime
+         * param: [request, num]
+         * return: cn.edu.gdut.llc.share.response.ResponseMessage
+         * creat_user: ZHAN
+         * creat_date: 2018/4/25/0025
+         * creat_time: 15:41
+         **/
+        logger.debug("selectInfoNumByReleaseTime num:" + num);
+        ResponseMessage message = new ResponseMessage();
+        try {
+            Object data = infosService.selectInfoNumByReleaseTime(num);
+            JSONObject obj = new JSONObject();
+            obj.put("data:", data);
+            request.setAttribute(LoggerUtils.LOGGER_RETURN, obj);
+            message.setData(data);
+            message.setStatus(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+            message.setStatus(false);
+            message.setErrorCode(ErrorCode.DataBaseAccessError);
+            message.setMessage(e.toString());
+        }
+        return message;
+    }
+
 }

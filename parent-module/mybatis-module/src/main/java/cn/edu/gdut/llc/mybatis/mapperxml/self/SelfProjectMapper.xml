@@ -63,8 +63,11 @@
 
 </select>
 
-    <select id="findProjectNumByVisit" resultMap="BaseResultMap" parameterType="Integer">
-    SELECT  * FROM project ORDER BY visit  DESC LIMIT #{num}
+    <select id="findProjectNumByVisit" resultMap="ProjectAndPictureResultMap" parameterType="Integer">
+    SELECT  *, pictures.pic_url FROM project
+    LEFT JOIN pictures
+    ON project.`logo` = pictures.`pic_id`
+    ORDER BY visit  DESC LIMIT #{num}
 
 </select>
 

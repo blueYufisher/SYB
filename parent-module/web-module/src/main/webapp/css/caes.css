@@ -1,0 +1,25 @@
+.news_padding{padding:25px 0 0}
+.news-list .sort{background:none repeat scroll 0 0 #EEEEEE;padding:12px 15px;text-align:right}
+.news-list ul{}
+.news-list li{zoom:1;clear:both;border-bottom:1px dotted #D7D7D7;padding:15px 0}
+.news-list li:after{clear:both;content:"";display:block;height:0;visibility:hidden}
+.news-list h4{font-size:14px;font-weight:bold;margin-bottom:2px}
+.news-list .datetime{background:url(../images/datetime.jpg) no-repeat 0 0;width:40px;height:42px;padding-top:5px;text-align:center;display:block;float:left;margin-right:20px;line-height:13px;color:#fff}
+.news-list .source{margin-bottom:2px;color:#CCC}
+.news-list .summary{line-height:1.6;margin-top:8px}
+.news-list .summary a{display:inline-block}
+.news-list .page{margin:30px 0}
+.news-list .img{border:2px solid #CCCCCC;float:left;margin-right:14px;overflow:hidden;padding:2px;/*width:350px*/}
+.news-list .img:hover{border:2px solid #F60}
+/*.news-list .img img{height:125px;vertical-align:middle;width:350px}*/
+.news-list .nopic .img{display:none}
+.news-list .cnt{float:left;width:500px}
+.news-list .nopic .cnt{width:auto}
+.page{clear:both;padding:50px 0 50px 320px}
+.page li{float:left;margin-right:12px}
+.page .thisclass,.page strong{color:#FF6600;font-weight:bold}
+.hot_news_title h3{font-size:16px;padding-bottom:5px}
+.hot_news_list li{border-top:1px dashed #dbdbdb;background:url(../images/icon_org.jpg) no-repeat 0 15px;padding:5px 0 5px 10px}
+.news_detail_top{text-align:center;margin-bottom:20px}
+.news_detail_top h1{font-size:24px;line-height:40px}
+.news_detail_top span{margin:0 10px}

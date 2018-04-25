@@ -125,7 +125,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public List<Project> findProjectNumByVisit(int num) {
+    public List<SelfProject> findProjectNumByVisit(int num) {
         /**
          * describe: 获取按visit排序的前num个Project
          * class_name: findProjectNumByVisit
@@ -223,10 +223,10 @@ public class ProjectServiceImpl implements ProjectService {
          * creat_time: 21:36
          **/
         int id = projectDao.addProject(project);
-        String category = "4";
-        int categoryId = id;
-        int picId = project.getLogo();
-        picturesDao.modifyPictureInfo(category, categoryId, picId);
+//        String category = "4";
+//        int categoryId = id;
+//        int picId = project.getLogo();
+//        picturesDao.modifyPictureInfo(category, categoryId, picId);
         return id;
     }
 
@@ -242,11 +242,11 @@ public class ProjectServiceImpl implements ProjectService {
          * creat_time: 21:38
          **/
         projectDao.modifyProject(act);
-        int id = act.getId();
-        String category = "4";
-        int categoryId = id;
-        int picId = act.getLogo();
-        picturesDao.modifyPictureInfo(category, categoryId, picId);
+//        int id = act.getId();
+//        String category = "4";
+//        int categoryId = id;
+//        int picId = act.getLogo();
+//        picturesDao.modifyPictureInfo(category, categoryId, picId);
     }
 
     @Override

@@ -1,7 +1,9 @@
 package cn.edu.gdut.llc.web.controller.rest;
 
 import cn.edu.gdut.llc.message.CSparam;
+import cn.edu.gdut.llc.message.PictureParam;
 import cn.edu.gdut.llc.message.SCresponse;
+import cn.edu.gdut.llc.mybatis.model.Infos;
 import cn.edu.gdut.llc.mybatis.model.Pictures;
 import cn.edu.gdut.llc.mybatis.model.self.SelfPictures;
 import cn.edu.gdut.llc.share.constant.ErrorCode;
@@ -190,4 +192,23 @@ public class PicturesRestController {
         return message;
     }
 
+    
+    @RequestMapping(value = "/modifyPicturesByInfo")
+    public ResponseMessage modifyPicturesByInfo(@RequestBody PictureParam pictureParam) {
+        logger.debug("modifyPicturesByInfo:PictureParam=" + pictureParam);
+        ResponseMessage message = new ResponseMessage();
+        try {
+            String title = pictureParam.getTitle();
+            int typeId = pictureParam.getTypeId();
+            int[] id = pictureParam.getId();
+            picturesService.modifyPictureInfo(title, typeId, id);
+            message.setStatus(true);
+        } catch (Exception e) {
+            message.setMessage(e.toString());
+            message.setStatus(false);
+            e.printStackTrace();
+        }
+        return message;
+
+    }
 }

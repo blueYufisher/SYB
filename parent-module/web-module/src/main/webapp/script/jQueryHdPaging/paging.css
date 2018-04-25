@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.fl {
+  float: left;
+}
+.paginate {
+  height: 18px;
+  line-height: 18px;
+  /*position: absolute;*/
+  /*left: 42%;*/
+  /*top: 50%;*/
+  transform: translate(-50%, -50%);
+  text-align: center;
+  overflow: hidden;
+}
+.paginate button {
+  padding: 0 10px;
+  margin: 0 10px;
+  height: 18px;
+  float: left;
+  cursor: pointer;
+  border: 1px solid #ebebeb;
+  background-color: #ffffff;
+}
+.paginate .first-page,
+.paginate .last-page {
+  margin: 0;
+}
+.paginate .pageWrap {
+  height: 18px;
+  float: left;
+  overflow: hidden;
+}
+.paginate .pageWrap ul {
+  width: 100000px;
+  height: 18px;
+  float: left;
+}
+.paginate .pageWrap ul li {
+  width: 20px;
+  height: 18px;
+  /*border: 1px solid #ebebeb;*/
+  line-height: 18px;
+  paginate-sizing: border-paginate;
+  cursor: pointer;
+  float: left;
+}
+
+.paginate .pageWrap ul li:hover{
+  color: #f60;
+}
+
+.paginate .pageWrap ul .sel-page {
+  /*background-color: yellow;*/
+  color: #f60;
+}
+.paginate .jump-text {
+  width: 20px;
+  height: 14px;
+  paginate-sizing: border-paginate;
+  text-align: center;
+  margin: 0 5px;
+  float: left;
+}
+.paginate .jump-button {
+  margin: 0;
+  float: left;
+}
+.paginate .total-pages,
+.paginate .total-count {
+  margin-left: 10px;
+  float: left;
+  font-size: 14px;
+}

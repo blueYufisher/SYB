@@ -27,8 +27,37 @@ public interface SelfInfosMapper {
      **/
     List<SelfInfos> findInfosByTypeList(SMParam<SelfInfos> msg);
 
+    /**
+     * describe: 根据id和type查询Infos
+     * class_name: findInfoByIdAndType
+     * param: [id, type]
+     * return: java.util.List<cn.edu.gdut.llc.mybatis.model.Infos>
+     * creat_user: ZHAN
+     * creat_date: 2017/12/9/0009
+     * creat_time: 15:48
+     **/
     List<SelfInfos> findInfoByIdAndType(SMParam<SelfInfos> msg);
-    
+
+    /**
+     * describe: 根据数量找到最新的infos
+     * class_name: selectInfoNumByReleaseTime
+     * param: [num]
+     * return: java.util.List<cn.edu.gdut.llc.mybatis.model.self.SelfInfos>
+     * creat_user: ZHAN
+     * creat_date: 2018/4/25/0025
+     * creat_time: 15:37
+     **/
+    List<SelfInfos> findInfosByReleaseTime(int num);
+
+    /**
+     * describe: 根据id查Info
+     * class_name: findInfoById
+     * param: [id]
+     * return: cn.edu.gdut.llc.mybatis.model.Infos
+     * creat_user: ZHAN
+     * creat_date: 2017/12/9/0009
+     * creat_time: 15:44
+     **/
     SelfInfos findInfoById(Integer id);
 
     /**
@@ -89,7 +118,7 @@ public interface SelfInfosMapper {
 
     /**
      * describe: 根据title或者note模糊搜索
-     * class_name: searchInfosByTitleOrNote
+     * class_name: searchInfosTypeByTitleOrNote
      * param: [msg]
      * return: java.util.List<cn.edu.gdut.llc.mybatis.model.Infos>
      * creat_user: ZHAN
@@ -97,6 +126,16 @@ public interface SelfInfosMapper {
      * creat_time: 10:43
      **/
     List<Infos> searchInfosTypeByTitleOrNote(SMParam<Infos> msg);
+
+    /**
+     * describe: 根据title或者note模糊搜索
+     * class_name: searchInfosByTitleOrNote
+     * param: [msg]
+     * return: java.util.List<cn.edu.gdut.llc.mybatis.model.Infos>
+     * creat_user: ZHAN
+     * creat_date: 2017/12/15/0015
+     * creat_time: 10:43
+     **/
     List<Infos> searchInfosByTitleOrNote(SMParam<Infos> msg);
 
     /**

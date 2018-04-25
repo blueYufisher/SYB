@@ -223,12 +223,13 @@ public class PicturesServiceImpl implements PicturesService {
         try {
             // 删除原来的图片
             String picurl = picturesDao.getPicturesById(id).getPicUrl();
+            String picLocation = picturesDao.getPicturesById(id).getPicLocation();
             String root = env.getProperty("pic.root.path");
             picurl = root + picurl;
             UpLoadUtils.deleteFile(picurl);
 
             //判断图片是否在数据库当中存在，不存在则获取图片信息
-            Pictures pic = getSavePicInf(file, title);
+            Pictures pic = getSavePicInf(file, title, picLocation);
 
             //修改数据库当中的图片信息
             pic.setPicId(id);
@@ -240,6 +241,13 @@ public class PicturesServiceImpl implements PicturesService {
             // TODO Auto-generated catch block
             throw new RuntimeException(e.getMessage());
         }
+    }
+    
+    @Transactional
+	public void modifyPictureInfo(String category, int categoryId, int[] id){
+    	for (int i = 0; i < id.length; i++){
+    		picturesDao.modifyPictureInfo(category, categoryId, id[i]);
+    	}
     }
 
 
@@ -342,7 +350,7 @@ public class PicturesServiceImpl implements PicturesService {
     }
 
     @Transactional
-    public int uploadPicture(MultipartFile file, String title) {
+    public int uploadPicture(MultipartFile file, String title, String picLocation) {
         /**
          * describe: 上传picture图片
          * class_name: uploadPicture
@@ -355,7 +363,7 @@ public class PicturesServiceImpl implements PicturesService {
         int key;
         try {
             // 判断数据库当中是否已经存在该图片，如果不存在获取图片信息，存在则抛出异常
-            Pictures pic = getSavePicInf(file, title);
+            Pictures pic = getSavePicInf(file, title, picLocation);
             // 向数据库当中插入图片信息
             key = picturesDao.insertPicture(pic);
             // 将图片文件上传到指定的路径
@@ -368,7 +376,7 @@ public class PicturesServiceImpl implements PicturesService {
     }
 
     @Transactional
-    public int uploadAvatar(MultipartFile file, String title) {
+    public int uploadAvatar(MultipartFile file, String title, String picLocation) {
         /**
          * describe: 上传avatar图片
          * class_name: uploadAvatar
@@ -381,7 +389,7 @@ public class PicturesServiceImpl implements PicturesService {
         int key;
         try {
             // 判断数据库当中是否已经存在该图片，如果不存在获取图片信息，存在则抛出异常
-            Pictures pic = getSavePicInf(file, title);
+            Pictures pic = getSavePicInf(file, title, picLocation);
             // 向数据库当中插入图片信息
             key = picturesDao.insertPicture(pic);
             // 将图片文件上传到指定的路径
@@ -394,7 +402,7 @@ public class PicturesServiceImpl implements PicturesService {
     }
 
     /*****************************************************************************************/
-    private Pictures getSavePicInf(MultipartFile file, String title) throws IOException, NoSuchAlgorithmException {
+    private Pictures getSavePicInf(MultipartFile file, String title, String picLocation) throws IOException, NoSuchAlgorithmException {
         /**
          * describe: 判断图片是否已经存在，获取保存图片所需的各种信息
          * class_name: getSavePicInf
@@ -433,7 +441,7 @@ public class PicturesServiceImpl implements PicturesService {
 
             String savePath = sdf.format(d) + "\\";
             // 创建文件的保存名
-            String saveName = sdf.format(d) + hashCode.charAt(0) + hashCode.charAt(1) + "." +fileName.split("\\.")[fileName.split("\\.").length-1];
+            String saveName = sdf.format(d) + hashCode.charAt(0) + hashCode.charAt(1) + hashCode.charAt(2) + "." +fileName.split("\\.")[fileName.split("\\.").length-1];
 //            String saveName = md5Result + fileName;
 
 
@@ -441,6 +449,7 @@ public class PicturesServiceImpl implements PicturesService {
             Pictures pic = new Pictures();
             pic.setPicMd5(md5Result);
             pic.setPicTitle(title);
+            pic.setPicLocation(picLocation);
             pic.setPicUrl(savePath + saveName);
             Date date = new Date();
             pic.setPicUpdateTime(date);

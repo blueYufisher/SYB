@@ -35,7 +35,7 @@ public interface ProjectService {
      * @param num
      * @return
      */
-    List<Project> findProjectNumByVisit(int num);
+    List<SelfProject> findProjectNumByVisit(int num);
 
     /**
      * 获取Project并且分页

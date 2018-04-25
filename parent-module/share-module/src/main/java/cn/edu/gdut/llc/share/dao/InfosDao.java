@@ -186,4 +186,16 @@ public interface InfosDao {
     List<Infos> getInfoByTypeId_foreach_array(SearchParam<Infos> msg);
 
     int countInfoByTypeId_foreach_array(SearchParam<Infos> msg);
+
+    /**
+     * describe: 根据数量找到最新的infos
+     * class_name: selectInfoNumByReleaseTime
+     * param: [num]
+     * return: java.util.List<cn.edu.gdut.llc.mybatis.model.self.SelfInfos>
+     * creat_user: ZHAN
+     * creat_date: 2018/4/25/0025
+     * creat_time: 15:37
+     **/
+    List<SelfInfos> selectInfoNumByReleaseTime(int num);
+
 }

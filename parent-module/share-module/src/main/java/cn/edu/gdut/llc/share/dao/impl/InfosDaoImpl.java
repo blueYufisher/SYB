@@ -32,7 +32,7 @@ public class InfosDaoImpl implements InfosDao {
     @Override
     public SelfInfos getInfosById(Integer id) {
         /**
-         * describe: 根据id查Guide
+         * describe: 根据id查Info
          * class_name: getInfosById
          * param: [id]
          * return: cn.edu.gdut.llc.mybatis.model.Infos
@@ -280,5 +280,19 @@ public class InfosDaoImpl implements InfosDao {
     @Override
     public int countInfoByTypeId_foreach_array(SearchParam<Infos> msg) {
         return selfInfosMapper.countInfoByTypeId_foreach_array(msg);
+    }
+
+    @Override
+    public List<SelfInfos> selectInfoNumByReleaseTime(int num) {
+        /**
+         * describe: 根据数量找到最新的infos
+         * class_name: selectInfoNumByReleaseTime
+         * param: [num]
+         * return: java.util.List<cn.edu.gdut.llc.mybatis.model.self.SelfInfos>
+         * creat_user: ZHAN
+         * creat_date: 2018/4/25/0025
+         * creat_time: 15:37
+         **/
+        return selfInfosMapper.findInfosByReleaseTime(num);
     }
 }

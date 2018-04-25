@@ -287,7 +287,7 @@ public class FileServiceImpl implements FileService {
 
             String savePath = sdf.format(d) + "\\";
             // 创建文件的保存名
-            String saveName = sdf.format(d) + hashCode.charAt(0) + hashCode.charAt(1) + "." +fileName.split("\\.")[fileName.split("\\.").length-1];
+            String saveName = sdf.format(d) + hashCode.charAt(0) + hashCode.charAt(1) + hashCode.charAt(2) + "." +fileName.split("\\.")[fileName.split("\\.").length-1];
 //            String saveName = md5Result + fileName;
 
 

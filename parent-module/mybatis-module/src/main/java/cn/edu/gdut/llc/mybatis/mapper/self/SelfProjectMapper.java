@@ -21,7 +21,7 @@ public interface SelfProjectMapper {
      */
     List<SelfProject> findProjectByNum(int num);
 
-    List<Project> findProjectNumByVisit(int num);
+    List<SelfProject> findProjectNumByVisit(int num);
 
     /**
      *获取Project并且分页

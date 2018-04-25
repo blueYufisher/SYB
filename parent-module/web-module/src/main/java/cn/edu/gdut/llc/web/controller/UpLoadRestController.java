@@ -37,7 +37,7 @@ public class UpLoadRestController {
 
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
-    public ResponseMessage upload(@RequestParam("upfile") MultipartFile file, @RequestParam("title") String title) {
+    public ResponseMessage upload(@RequestParam("upfile") MultipartFile file, @RequestParam("title") String title, @RequestParam("picLocation") String picLocation) {
         /**
          * describe:上传图片
          * class_name: upload
@@ -47,11 +47,11 @@ public class UpLoadRestController {
          * creat_date: 2017/12/31/0031
          * creat_time: 14:32
          **/
-        logger.debug("upload:file" + file + "title:" + title);
+        logger.debug("upload:file" + file + "title:" + title + "picLocation:" + picLocation);
         ResponseMessage message = new ResponseMessage();
         try {
             //response.sendRedirect("/upload2.html");
-            int primaryKey = picturesService.uploadPicture(file, title);
+            int primaryKey = picturesService.uploadPicture(file, title, picLocation);
             Object data = picturesService.getPicturesById(primaryKey);
             message.setStatus(true);
             message.setData(data);
@@ -66,7 +66,7 @@ public class UpLoadRestController {
     }
 
     @RequestMapping(value = "/uploadAvatar", method = RequestMethod.POST)
-    public ResponseMessage uploadAvatar(@RequestParam("upfile") MultipartFile file, @RequestParam("title") String title) {
+    public ResponseMessage uploadAvatar(@RequestParam("upfile") MultipartFile file, @RequestParam("title") String title, @RequestParam("picLocation") String picLocation) {
         /**
          * describe:上传图片
          * class_name: upload
@@ -76,11 +76,11 @@ public class UpLoadRestController {
          * creat_date: 2017/12/31/0031
          * creat_time: 14:32
          **/
-        logger.debug("uploadAvatar:file" + file + "title:" + title);
+        logger.debug("uploadAvatar:file" + file + "title:" + title + "picLocation:" + picLocation);
         ResponseMessage message = new ResponseMessage();
         try {
             //response.sendRedirect("/upload2.html");
-            int primaryKey = picturesService.uploadAvatar(file, title);
+            int primaryKey = picturesService.uploadAvatar(file, title, picLocation);
             Object data = picturesService.getPicturesById(primaryKey);
             message.setStatus(true);
             message.setData(data);

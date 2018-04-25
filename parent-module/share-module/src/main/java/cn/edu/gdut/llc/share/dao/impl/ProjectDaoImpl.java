@@ -58,7 +58,7 @@ public class ProjectDaoImpl implements ProjectDao {
     }
 
     @Override
-    public List<Project> findProjectNumByVisit(int num) {
+    public List<SelfProject> findProjectNumByVisit(int num) {
         /**
          * describe: 获取按visit排序的前num个Project
          * class_name: findProjectNumByVisit
@@ -68,7 +68,7 @@ public class ProjectDaoImpl implements ProjectDao {
          * creat_date: 2018/1/15/0015
          * creat_time: 9:55
          **/
-        List<Project> list = selfProjectMapper.findProjectNumByVisit(num);
+        List<SelfProject> list = selfProjectMapper.findProjectNumByVisit(num);
         System.out.println(list);
         return list;
     }

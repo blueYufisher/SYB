@@ -1,0 +1,41 @@
+.news_padding{padding:25px 0 0}
+.news-list .sort{background:none repeat scroll 0 0 #EEEEEE;padding:12px 15px;text-align:right}
+.news-list ul{}
+.news-list li{zoom:1;clear:both;border-bottom:1px dotted #D7D7D7;padding:15px 0}
+.news-list li:after{clear:both;content:"";display:block;height:0;visibility:hidden}
+.news-list h4{font-size:14px;font-weight:bold;margin-bottom:2px}
+.news-list .icon{width:40px;height:42px;padding-top:5px;text-align:center;display:block;float:left;margin-right:20px;line-height:13px;color:#fff}
+.hatch{background:url(../images/hatch.png) no-repeat 0 0}
+.activity{background:url(../images/activity.png) no-repeat 0 0}
+.manage{background:url(../images/manage.png) no-repeat 0 0}
+.assess{background:url(../images/assess.png) no-repeat 0 0}
+.train{background:url(../images/train.png) no-repeat 0 0}
+.enter{background:url(../images/enter.png) no-repeat 0 0}
+.news{background:url(../images/news.png) no-repeat 0 0}
+.knowledge{background:url(../images/knowledge.png) no-repeat 0 0}
+.teacher{background:url(../images/teacher.png) no-repeat 0 0}
+.policy{background:url(../images/policy.png) no-repeat 0 0}
+.funds{background:url(../images/funds.png) no-repeat 0 0}
+.bases{background:url(../images/bases.png) no-repeat 0 0}
+.news-list .source{margin-bottom:2px}
+.news-list .summary{line-height:1.6;margin-top:8px}
+.news-list .summary a{display:inline-block}
+.news-list .page{margin:30px 0}
+.news-list .nopic .img{display:none}
+.news-list .cnt{float:left;width:590px}
+.news-list .nopic .cnt{width:auto}
+.page{clear:both;padding:50px 0 50px 290px;}
+/*.page li{float:left;margin-right:12px}*/
+/*.page .thisclass,.page strong{color:#FF6600;font-weight:bold}*/
+.hot_news_title h3{font-size:16px;padding-bottom:5px}
+.hot_news_list li{border-bottom:1px dashed #dbdbdb;background:url(../images/icon_org.jpg) no-repeat 0 15px;padding:5px 0 5px 10px}
+.news_detail_top{text-align:center;margin-bottom:20px}
+.news_detail_top h1{font-size:24px;line-height:40px}
+.news_detail_top span{margin:0 10px}
+#lmenu{width:80%}
+#active{background-image:url("../images/li_bg.png")}
+li.ll{height:50px;line-height:50px;background:#c7cfd1}
+li.ll span{font-size:14px;margin-left:20px}
+li.ll.first{background:#F60}
+li.ll.first span{font-size:17px;font-weight:bold;color:white;margin-left:10px}
+li.ll:not(.first):hover{background:url("../images/li_bg.png")}

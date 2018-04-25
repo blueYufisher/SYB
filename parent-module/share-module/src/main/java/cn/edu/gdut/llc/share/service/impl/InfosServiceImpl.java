@@ -373,14 +373,14 @@ public class InfosServiceImpl implements InfosService {
          **/
 //        return infosDao.addInfo(infos);
         int id = infosDao.addInfo(infos);
-        String category = infos.getType().toString() ;
-        int categoryId = id;
-        String pic_id = String.valueOf(infos.getCoverPic());
-        int picId = 0;
-        if(!pic_id.equals("null")){
-            picId = Integer.parseInt(pic_id);
-            picturesDao.modifyPictureInfo(category,categoryId,picId);
-        }
+//        String category = infos.getType().toString() ;
+//        int categoryId = id;
+//        String pic_id = String.valueOf(infos.getCoverPic());
+//        int picId = 0;
+//        if(!pic_id.equals("null")){
+//            picId = Integer.parseInt(pic_id);
+//            picturesDao.modifyPictureInfo(category,categoryId,picId);
+//        }
         return id;
     }
 
@@ -396,16 +396,16 @@ public class InfosServiceImpl implements InfosService {
          * creat_time: 0:22
          **/
         infosDao.modifyInfo(infos);
-        int id = infos.getId();
-        String category = infos.getType().toString() ;
-        int categoryId = id;
-
-        String pic_id = String.valueOf(infos.getCoverPic());
-        int picId = 0;
-        if(!pic_id.equals("null")){
-            picId = Integer.parseInt(pic_id);
-            picturesDao.modifyPictureInfo(category,categoryId,picId);
-        }
+//        int id = infos.getId();
+//        String category = infos.getType().toString() ;
+//        int categoryId = id;
+//
+//        String pic_id = String.valueOf(infos.getCoverPic());
+//        int picId = 0;
+//        if(!pic_id.equals("null")){
+//            picId = Integer.parseInt(pic_id);
+//            picturesDao.modifyPictureInfo(category,categoryId,picId);
+//        }
 
     }
 
@@ -453,6 +453,20 @@ public class InfosServiceImpl implements InfosService {
         int totalPage = (int) Math.ceil((double) totalRecord / param.getPageSize());
         response.setTotalPage(totalPage);
         return response;
+    }
+
+    @Override
+    public List<SelfInfos> selectInfoNumByReleaseTime(int num) {
+        /**
+         * describe: 根据数量找到最新的infos
+         * class_name: selectInfoNumByReleaseTime
+         * param: [num]
+         * return: java.util.List<cn.edu.gdut.llc.mybatis.model.self.SelfInfos>
+         * creat_user: ZHAN
+         * creat_date: 2018/4/25/0025
+         * creat_time: 15:40
+         **/
+        return infosDao.selectInfoNumByReleaseTime(num);
     }
 }
 
